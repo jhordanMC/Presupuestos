@@ -87,6 +87,67 @@
             border-bottom: 3px solid #ff9800;
             padding-bottom: 15px;
         }
+
+        /* Nuevo: Panel de opciones */
+        .options-panel {
+            background: linear-gradient(to bottom, #fff3e0 0%, #ffffff 100%);
+            border: 3px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);
+        }
+
+        .options-title {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: -20px -20px 20px -20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 7px 7px 0 0;
+            border-bottom: 3px solid #1e4db7;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #ff9800;
+            transition: all 0.3s;
+        }
+
+        .option-item:hover {
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .option-item label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #1e4db7;
+            font-weight: bold;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #ff9800;
+        }
         
         .panels-container {
             display: grid;
@@ -222,66 +283,70 @@
             color: #666;
         }
         
-        .item-amount {
+        .summary-panel {
+            background: linear-gradient(to bottom, #f8f9ff 0%, #ffffff 100%);
+            border: 3px solid #1e4db7;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 8px 16px rgba(30, 77, 183, 0.2);
+        }
+        
+        .summary-title {
+            background: linear-gradient(135deg, #1e4db7 0%, #2563eb 100%);
+            color: white;
+            font-size: 20px;
             font-weight: bold;
-            color: #28a745;
+            margin: -25px -25px 20px -25px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 7px 7px 0 0;
+            border-bottom: 3px solid #ff9800;
         }
         
-        .item-tax {
-            color: #ff6b6b;
-        }
-        
-        .panel-total {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #1e4db7;
-            font-weight: bold;
-        }
-        
-        .panel-total-row {
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            font-size: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+        
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-label {
             color: #1e4db7;
+            font-weight: bold;
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 30px;
-            color: #999;
-            font-style: italic;
-        }
-        
-        .final-totals {
-            background: linear-gradient(135deg, #1e4db7 0%, #2563eb 100%);
-            padding: 25px;
-            border-radius: 10px;
-            color: white;
-            box-shadow: 0 6px 12px rgba(30, 77, 183, 0.4);
-            border: 3px solid #ff9800;
-        }
-        
-        .final-totals h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .summary-value {
+            color: #333;
+            font-weight: bold;
         }
         
         .total-row {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            margin: 15px -25px -25px -25px;
+            padding: 20px 25px;
+            border-radius: 0 0 7px 7px;
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            font-size: 18px;
+            align-items: center;
         }
         
-        .total-row.grand-total {
-            border-top: 3px solid #ff9800;
-            margin-top: 15px;
-            padding-top: 15px;
-            font-size: 26px;
+        .total-label {
+            color: white;
+            font-size: 20px;
             font-weight: bold;
+        }
+        
+        .total-value {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
         .btn-pdf {
@@ -289,312 +354,281 @@
             background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
             color: white;
             border: none;
-            padding: 18px;
+            padding: 15px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             margin-top: 20px;
             transition: all 0.3s;
-            box-shadow: 0 6px 12px rgba(255, 152, 0, 0.4);
-            border: 2px solid #1e4db7;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
         }
         
         .btn-pdf:hover {
-            background: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(255, 152, 0, 0.5);
+            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 152, 0, 0.5);
         }
         
-        /* Patrón de ladrillos sutil en los paneles */
-        .panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.02;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 20px,
-                    #1e4db7 20px,
-                    #1e4db7 21px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 60px,
-                    #1e4db7 60px,
-                    #1e4db7 61px
-                );
-            pointer-events: none;
-            border-radius: 10px;
-        }
-        
-        .panel {
-            position: relative;
+        @media (max-width: 768px) {
+            .panels-container {
+                grid-template-columns: 1fr;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div class="header">
-            <div class="company-name">MEDINA CONSTRUCCIONES COMPANY</div>
-            <div class="company-slogan">"Construyendo confianza, cimentando futuro."</div>
-            <div class="company-contact">📞 979 646 418 | ✉️ fm_7894@outlook.es</div>
-        </div>
-        
-        <div class="container">
-            <h1>GENERADOR DE PRESUPUESTO</h1>
-            
-            <div class="panels-container">
-                <!-- Panel Mano de Obra -->
-                <div class="panel">
-                    <div class="panel-title">💼 MANO DE OBRA</div>
-                    
-                    <div class="input-group">
-                        <label for="laborName">Descripción del Trabajo</label>
-                        <input type="text" id="laborName" placeholder="Ej: Instalación eléctrica">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="laborAmount">Monto (S/)</label>
-                        <input type="number" id="laborAmount" placeholder="0.00" step="0.01" min="0">
-                    </div>
-                    
-                    <button class="btn-add" onclick="addLabor()">Agregar Mano de Obra</button>
-                    
-                    <div class="items-list" id="laborList"></div>
-                    
-                    <div class="panel-total" id="laborTotal" style="display: none;">
-                        <div class="panel-total-row">
-                            <span>Subtotal:</span>
-                            <span id="laborSubtotal">S/ 0.00</span>
-                        </div>
-                        <div class="panel-total-row">
-                            <span>Impuesto 8%:</span>
-                            <span id="laborTax">S/ 0.00</span>
-                        </div>
-                        <div class="panel-total-row" style="font-size: 16px;">
-                            <span>Total:</span>
-                            <span id="laborTotalAmount">S/ 0.00</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Panel Materiales -->
-                <div class="panel">
-                    <div class="panel-title">🛠️ MATERIALES</div>
-                    
-                    <div class="input-group">
-                        <label for="materialName">Descripción del Material</label>
-                        <input type="text" id="materialName" placeholder="Ej: Cable eléctrico 10m">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="materialAmount">Monto (S/)</label>
-                        <input type="number" id="materialAmount" placeholder="0.00" step="0.01" min="0">
-                    </div>
-                    
-                    <button class="btn-add" onclick="addMaterial()">Agregar Material</button>
-                    
-                    <div class="items-list" id="materialList"></div>
-                    
-                    <div class="panel-total" id="materialTotal" style="display: none;">
-                        <div class="panel-total-row">
-                            <span>Subtotal:</span>
-                            <span id="materialSubtotal">S/ 0.00</span>
-                        </div>
-                        <div class="panel-total-row">
-                            <span>Impuesto 8%:</span>
-                            <span id="materialTax">S/ 0.00</span>
-                        </div>
-                        <div class="panel-total-row" style="font-size: 16px;">
-                            <span>Total:</span>
-                            <span id="materialTotalAmount">S/ 0.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Totales Finales -->
-            <div class="final-totals" id="finalTotals" style="display: none;">
-                <h2>RESUMEN GENERAL</h2>
-                <div class="total-row">
-                    <span>Subtotal Mano de Obra:</span>
-                    <span id="finalLaborSubtotal">S/ 0.00</span>
-                </div>
-                <div class="total-row">
-                    <span>Subtotal Materiales:</span>
-                    <span id="finalMaterialSubtotal">S/ 0.00</span>
-                </div>
-                <div class="total-row">
-                    <span>Subtotal General:</span>
-                    <span id="finalSubtotal">S/ 0.00</span>
-                </div>
-                <div class="total-row">
-                    <span>Total Impuestos (8%):</span>
-                    <span id="finalTax">S/ 0.00</span>
-                </div>
-                <div class="total-row grand-total">
-                    <span>TOTAL A PAGAR:</span>
-                    <span id="grandTotal">S/ 0.00</span>
-                </div>
-            </div>
-            
-            <!-- Botón Descargar PDF -->
-            <button class="btn-pdf" onclick="generatePDF()" id="pdfBtn" style="display: none;">
-                📄 DESCARGAR BOLETA EN PDF
-            </button>
+    <div class="header">
+        <div class="company-name">MEDINA CONSTRUCCIONES COMPANY</div>
+        <div class="company-slogan">"Construyendo confianza, cimentando futuro."</div>
+        <div class="company-contact">
+            <strong>FORTUNATO MEDINA SICHA</strong><br>
+            MAESTRO EN CONSTRUCCION<br>
+            Tel: 979 646 418 | Email: fm_7894@outlook.es
         </div>
     </div>
-    
+
+    <div class="container">
+        <h1>📋 GENERADOR DE PRESUPUESTO</h1>
+
+        <!-- Panel de Opciones -->
+        <div class="options-panel">
+            <div class="options-title">⚙️ OPCIONES DE VISUALIZACIÓN</div>
+            <div class="options-grid">
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" id="showTaxOption" checked onchange="updateTotals()">
+                        Incluir impuesto 8%
+                    </label>
+                </div>
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" id="showLaborOption" checked onchange="updateTotals()">
+                        Mostrar Mano de Obra
+                    </label>
+                </div>
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" id="showMaterialOption" checked onchange="updateTotals()">
+                        Mostrar Materiales
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <!-- Panel Mano de Obra -->
+            <div class="panel">
+                <div class="panel-title">👷 MANO DE OBRA</div>
+                <div class="input-group">
+                    <label>Descripción del Trabajo:</label>
+                    <input type="text" id="laborName" placeholder="Ej: Pintura de paredes">
+                </div>
+                <div class="input-group">
+                    <label>Monto (S/):</label>
+                    <input type="number" id="laborAmount" placeholder="0.00" step="0.01" min="0">
+                </div>
+                <button class="btn-add" onclick="addLabor()">➕ Agregar Mano de Obra</button>
+                <div class="items-list" id="laborList"></div>
+            </div>
+
+            <!-- Panel Materiales -->
+            <div class="panel">
+                <div class="panel-title">🧱 MATERIALES</div>
+                <div class="input-group">
+                    <label>Descripción del Material:</label>
+                    <input type="text" id="materialName" placeholder="Ej: Cemento Portland">
+                </div>
+                <div class="input-group">
+                    <label>Monto (S/):</label>
+                    <input type="number" id="materialAmount" placeholder="0.00" step="0.01" min="0">
+                </div>
+                <button class="btn-add" onclick="addMaterial()">➕ Agregar Material</button>
+                <div class="items-list" id="materialList"></div>
+            </div>
+        </div>
+
+        <!-- Totales -->
+        <div id="finalTotals" class="summary-panel" style="display: none;">
+            <div class="summary-title">💰 RESUMEN DEL PRESUPUESTO</div>
+            
+            <div class="summary-row" id="laborSummaryRow">
+                <span class="summary-label">Subtotal Mano de Obra:</span>
+                <span class="summary-value" id="finalLaborSubtotal">S/ 0.00</span>
+            </div>
+            
+            <div class="summary-row" id="materialSummaryRow">
+                <span class="summary-label">Subtotal Materiales:</span>
+                <span class="summary-value" id="finalMaterialSubtotal">S/ 0.00</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Subtotal General:</span>
+                <span class="summary-value" id="finalSubtotal">S/ 0.00</span>
+            </div>
+            
+            <div class="summary-row" id="taxSummaryRow">
+                <span class="summary-label">Total Impuestos (8%):</span>
+                <span class="summary-value" id="finalTax">S/ 0.00</span>
+            </div>
+            
+            <div class="total-row">
+                <span class="total-label">TOTAL A PAGAR:</span>
+                <span class="total-value" id="grandTotal">S/ 0.00</span>
+            </div>
+        </div>
+
+        <button id="pdfBtn" class="btn-pdf" onclick="generatePDF()" style="display: none;">
+            📄 GENERAR PDF
+        </button>
+    </div>
+
     <script>
-        const { jsPDF } = window.jspdf;
         let laborItems = [];
         let materialItems = [];
         
         function addLabor() {
             const name = document.getElementById('laborName').value.trim();
-            const amount = parseFloat(document.getElementById('laborAmount').value);
+            const amount = parseFloat(document.getElementById('laborAmount').value) || 0;
             
-            if (!name || !amount || amount <= 0) {
-                alert('Por favor ingrese una descripción válida y un monto mayor a 0');
-                return;
+            if (name && amount > 0) {
+                const showTax = document.getElementById('showTaxOption').checked;
+                const tax = showTax ? amount * 0.08 : 0;
+                laborItems.push({
+                    id: Date.now(),
+                    name: name,
+                    amount: amount,
+                    tax: tax
+                });
+                
+                document.getElementById('laborName').value = '';
+                document.getElementById('laborAmount').value = '';
+                document.getElementById('laborName').focus();
+                
+                renderLabor();
+                updateTotals();
+            } else {
+                alert('Por favor, complete todos los campos correctamente');
             }
-            
-            const tax = amount * 0.08;
-            
-            laborItems.push({
-                name: name,
-                amount: amount,
-                tax: tax
-            });
-            
-            document.getElementById('laborName').value = '';
-            document.getElementById('laborAmount').value = '';
-            document.getElementById('laborName').focus();
-            
+        }
+        
+        function deleteLabor(id) {
+            laborItems = laborItems.filter(item => item.id !== id);
             renderLabor();
-            calculateTotals();
+            updateTotals();
+        }
+        
+        function renderLabor() {
+            const list = document.getElementById('laborList');
+            list.innerHTML = '';
+            
+            laborItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                
+                const showTax = document.getElementById('showTaxOption').checked;
+                
+                div.innerHTML = `
+                    <div class="item-header">
+                        <span class="item-name">${item.name}</span>
+                        <button class="delete-btn" onclick="deleteLabor(${item.id})">🗑️ Eliminar</button>
+                    </div>
+                    <div class="item-details">
+                        <span>Monto: S/ ${item.amount.toFixed(2)}</span>
+                        ${showTax ? `<span>Impuesto: S/ ${item.tax.toFixed(2)}</span>` : ''}
+                        <span>Total: S/ ${(item.amount + (showTax ? item.tax : 0)).toFixed(2)}</span>
+                    </div>
+                `;
+                
+                list.appendChild(div);
+            });
         }
         
         function addMaterial() {
             const name = document.getElementById('materialName').value.trim();
-            const amount = parseFloat(document.getElementById('materialAmount').value);
+            const amount = parseFloat(document.getElementById('materialAmount').value) || 0;
             
-            if (!name || !amount || amount <= 0) {
-                alert('Por favor ingrese una descripción válida y un monto mayor a 0');
-                return;
+            if (name && amount > 0) {
+                const showTax = document.getElementById('showTaxOption').checked;
+                const tax = showTax ? amount * 0.08 : 0;
+                materialItems.push({
+                    id: Date.now(),
+                    name: name,
+                    amount: amount,
+                    tax: tax
+                });
+                
+                document.getElementById('materialName').value = '';
+                document.getElementById('materialAmount').value = '';
+                document.getElementById('materialName').focus();
+                
+                renderMaterials();
+                updateTotals();
+            } else {
+                alert('Por favor, complete todos los campos correctamente');
             }
-            
-            const tax = amount * 0.08;
-            
-            materialItems.push({
-                name: name,
-                amount: amount,
-                tax: tax
-            });
-            
-            document.getElementById('materialName').value = '';
-            document.getElementById('materialAmount').value = '';
-            document.getElementById('materialName').focus();
-            
+        }
+        
+        function deleteMaterial(id) {
+            materialItems = materialItems.filter(item => item.id !== id);
             renderMaterials();
-            calculateTotals();
-        }
-        
-        function deleteLabor(index) {
-            laborItems.splice(index, 1);
-            renderLabor();
-            calculateTotals();
-        }
-        
-        function deleteMaterial(index) {
-            materialItems.splice(index, 1);
-            renderMaterials();
-            calculateTotals();
-        }
-        
-        function renderLabor() {
-            const container = document.getElementById('laborList');
-            
-            if (laborItems.length === 0) {
-                container.innerHTML = '<div class="empty-state">No hay items de mano de obra</div>';
-                document.getElementById('laborTotal').style.display = 'none';
-                return;
-            }
-            
-            let html = '';
-            laborItems.forEach((item, index) => {
-                html += `
-                    <div class="item">
-                        <div class="item-header">
-                            <div class="item-name">${item.name}</div>
-                            <button class="delete-btn" onclick="deleteLabor(${index})">✕</button>
-                        </div>
-                        <div class="item-details">
-                            <span class="item-amount">Monto: S/ ${item.amount.toFixed(2)}</span>
-                            <span class="item-tax">Imp. 8%: S/ ${item.tax.toFixed(2)}</span>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-            document.getElementById('laborTotal').style.display = 'block';
+            updateTotals();
         }
         
         function renderMaterials() {
-            const container = document.getElementById('materialList');
+            const list = document.getElementById('materialList');
+            list.innerHTML = '';
             
-            if (materialItems.length === 0) {
-                container.innerHTML = '<div class="empty-state">No hay materiales agregados</div>';
-                document.getElementById('materialTotal').style.display = 'none';
-                return;
-            }
-            
-            let html = '';
-            materialItems.forEach((item, index) => {
-                html += `
-                    <div class="item">
-                        <div class="item-header">
-                            <div class="item-name">${item.name}</div>
-                            <button class="delete-btn" onclick="deleteMaterial(${index})">✕</button>
-                        </div>
-                        <div class="item-details">
-                            <span class="item-amount">Monto: S/ ${item.amount.toFixed(2)}</span>
-                            <span class="item-tax">Imp. 8%: S/ ${item.tax.toFixed(2)}</span>
-                        </div>
+            materialItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                
+                const showTax = document.getElementById('showTaxOption').checked;
+                
+                div.innerHTML = `
+                    <div class="item-header">
+                        <span class="item-name">${item.name}</span>
+                        <button class="delete-btn" onclick="deleteMaterial(${item.id})">🗑️ Eliminar</button>
+                    </div>
+                    <div class="item-details">
+                        <span>Monto: S/ ${item.amount.toFixed(2)}</span>
+                        ${showTax ? `<span>Impuesto: S/ ${item.tax.toFixed(2)}</span>` : ''}
+                        <span>Total: S/ ${(item.amount + (showTax ? item.tax : 0)).toFixed(2)}</span>
                     </div>
                 `;
+                
+                list.appendChild(div);
             });
-            
-            container.innerHTML = html;
-            document.getElementById('materialTotal').style.display = 'block';
         }
         
-        function calculateTotals() {
-            const laborSubtotal = laborItems.reduce((sum, item) => sum + item.amount, 0);
-            const laborTax = laborItems.reduce((sum, item) => sum + item.tax, 0);
-            const laborTotal = laborSubtotal + laborTax;
+        function updateTotals() {
+            // Recalcular impuestos para todos los items
+            const showTax = document.getElementById('showTaxOption').checked;
+            const showLabor = document.getElementById('showLaborOption').checked;
+            const showMaterial = document.getElementById('showMaterialOption').checked;
             
-            document.getElementById('laborSubtotal').textContent = `S/ ${laborSubtotal.toFixed(2)}`;
-            document.getElementById('laborTax').textContent = `S/ ${laborTax.toFixed(2)}`;
-            document.getElementById('laborTotalAmount').textContent = `S/ ${laborTotal.toFixed(2)}`;
+            // Actualizar impuestos en los arrays
+            laborItems.forEach(item => {
+                item.tax = showTax ? item.amount * 0.08 : 0;
+            });
             
-            const materialSubtotal = materialItems.reduce((sum, item) => sum + item.amount, 0);
-            const materialTax = materialItems.reduce((sum, item) => sum + item.tax, 0);
-            const materialTotal = materialSubtotal + materialTax;
+            materialItems.forEach(item => {
+                item.tax = showTax ? item.amount * 0.08 : 0;
+            });
             
-            document.getElementById('materialSubtotal').textContent = `S/ ${materialSubtotal.toFixed(2)}`;
-            document.getElementById('materialTax').textContent = `S/ ${materialTax.toFixed(2)}`;
-            document.getElementById('materialTotalAmount').textContent = `S/ ${materialTotal.toFixed(2)}`;
+            // Re-renderizar listas
+            renderLabor();
+            renderMaterials();
             
             if (laborItems.length > 0 || materialItems.length > 0) {
+                const laborSubtotal = showLabor ? laborItems.reduce((sum, item) => sum + item.amount, 0) : 0;
+                const laborTax = showLabor ? laborItems.reduce((sum, item) => sum + item.tax, 0) : 0;
+                const materialSubtotal = showMaterial ? materialItems.reduce((sum, item) => sum + item.amount, 0) : 0;
+                const materialTax = showMaterial ? materialItems.reduce((sum, item) => sum + item.tax, 0) : 0;
                 const totalSubtotal = laborSubtotal + materialSubtotal;
                 const totalTax = laborTax + materialTax;
                 const grandTotal = totalSubtotal + totalTax;
@@ -605,6 +639,11 @@
                 document.getElementById('finalTax').textContent = `S/ ${totalTax.toFixed(2)}`;
                 document.getElementById('grandTotal').textContent = `S/ ${grandTotal.toFixed(2)}`;
                 
+                // Mostrar/ocultar filas según las opciones
+                document.getElementById('laborSummaryRow').style.display = showLabor ? 'flex' : 'none';
+                document.getElementById('materialSummaryRow').style.display = showMaterial ? 'flex' : 'none';
+                document.getElementById('taxSummaryRow').style.display = showTax ? 'flex' : 'none';
+                
                 document.getElementById('finalTotals').style.display = 'block';
                 document.getElementById('pdfBtn').style.display = 'block';
             } else {
@@ -614,12 +653,17 @@
         }
         
         function generatePDF() {
+            const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
-            const laborSubtotal = laborItems.reduce((sum, item) => sum + item.amount, 0);
-            const laborTax = laborItems.reduce((sum, item) => sum + item.tax, 0);
-            const materialSubtotal = materialItems.reduce((sum, item) => sum + item.amount, 0);
-            const materialTax = materialItems.reduce((sum, item) => sum + item.tax, 0);
+            const showTax = document.getElementById('showTaxOption').checked;
+            const showLabor = document.getElementById('showLaborOption').checked;
+            const showMaterial = document.getElementById('showMaterialOption').checked;
+            
+            const laborSubtotal = showLabor ? laborItems.reduce((sum, item) => sum + item.amount, 0) : 0;
+            const laborTax = showLabor ? laborItems.reduce((sum, item) => sum + item.tax, 0) : 0;
+            const materialSubtotal = showMaterial ? materialItems.reduce((sum, item) => sum + item.amount, 0) : 0;
+            const materialTax = showMaterial ? materialItems.reduce((sum, item) => sum + item.tax, 0) : 0;
             const totalSubtotal = laborSubtotal + materialSubtotal;
             const totalTax = laborTax + materialTax;
             const grandTotal = totalSubtotal + totalTax;
@@ -659,31 +703,51 @@
             let yPos = 65;
             
             // Tabla Mano de Obra
-            if (laborItems.length > 0) {
+            if (showLabor && laborItems.length > 0) {
                 doc.setFontSize(14);
                 doc.setTextColor(30, 77, 183);
                 doc.setFont(undefined, 'bold');
                 doc.text('DETALLE DE MANO DE OBRA', 14, yPos);
                 yPos += 8;
                 
-                const laborData = laborItems.map(item => [
-                    item.name,
-                    'S/ ' + item.amount.toFixed(2),
-                    'S/ ' + item.tax.toFixed(2)
-                ]);
+                const laborData = laborItems.map(item => {
+                    if (showTax) {
+                        return [
+                            item.name,
+                            'S/ ' + item.amount.toFixed(2),
+                            'S/ ' + item.tax.toFixed(2)
+                        ];
+                    } else {
+                        return [
+                            item.name,
+                            'S/ ' + item.amount.toFixed(2)
+                        ];
+                    }
+                });
+                
+                const laborHeaders = showTax 
+                    ? [['Descripcion del Trabajo', 'Monto (S/)', 'Impuesto 8% (S/)']]
+                    : [['Descripcion del Trabajo', 'Monto (S/)']];
+                
+                const laborColumnStyles = showTax 
+                    ? {
+                        0: { cellWidth: 100 },
+                        1: { cellWidth: 45, halign: 'right' },
+                        2: { cellWidth: 45, halign: 'right' }
+                      }
+                    : {
+                        0: { cellWidth: 145 },
+                        1: { cellWidth: 45, halign: 'right' }
+                      };
                 
                 doc.autoTable({
                     startY: yPos,
-                    head: [['Descripcion del Trabajo', 'Monto (S/)', 'Impuesto 8% (S/)']],
+                    head: laborHeaders,
                     body: laborData,
                     theme: 'striped',
                     headStyles: { fillColor: [30, 77, 183], textColor: 255, fontStyle: 'bold', fontSize: 10 },
                     styles: { fontSize: 9, cellPadding: 4 },
-                    columnStyles: {
-                        0: { cellWidth: 100 },
-                        1: { cellWidth: 45, halign: 'right' },
-                        2: { cellWidth: 45, halign: 'right' }
-                    },
+                    columnStyles: laborColumnStyles,
                     alternateRowStyles: { fillColor: [245, 245, 245] }
                 });
                 
@@ -692,36 +756,60 @@
                 doc.setFontSize(10);
                 doc.setFont(undefined, 'bold');
                 doc.setTextColor(0, 0, 0);
-                doc.text(`Subtotal: S/ ${laborSubtotal.toFixed(2)}  |  Impuesto: S/ ${laborTax.toFixed(2)}  |  Total: S/ ${(laborSubtotal + laborTax).toFixed(2)}`, 14, yPos);
+                if (showTax) {
+                    doc.text(`Subtotal: S/ ${laborSubtotal.toFixed(2)}  |  Impuesto: S/ ${laborTax.toFixed(2)}  |  Total: S/ ${(laborSubtotal + laborTax).toFixed(2)}`, 14, yPos);
+                } else {
+                    doc.text(`Total: S/ ${laborSubtotal.toFixed(2)}`, 14, yPos);
+                }
                 yPos += 12;
             }
             
             // Tabla Materiales
-            if (materialItems.length > 0) {
+            if (showMaterial && materialItems.length > 0) {
                 doc.setFontSize(14);
                 doc.setTextColor(30, 77, 183);
                 doc.setFont(undefined, 'bold');
                 doc.text('DETALLE DE MATERIALES', 14, yPos);
                 yPos += 8;
                 
-                const materialData = materialItems.map(item => [
-                    item.name,
-                    'S/ ' + item.amount.toFixed(2),
-                    'S/ ' + item.tax.toFixed(2)
-                ]);
+                const materialData = materialItems.map(item => {
+                    if (showTax) {
+                        return [
+                            item.name,
+                            'S/ ' + item.amount.toFixed(2),
+                            'S/ ' + item.tax.toFixed(2)
+                        ];
+                    } else {
+                        return [
+                            item.name,
+                            'S/ ' + item.amount.toFixed(2)
+                        ];
+                    }
+                });
+                
+                const materialHeaders = showTax 
+                    ? [['Descripcion del Material', 'Monto (S/)', 'Impuesto 8% (S/)']]
+                    : [['Descripcion del Material', 'Monto (S/)']];
+                
+                const materialColumnStyles = showTax 
+                    ? {
+                        0: { cellWidth: 100 },
+                        1: { cellWidth: 45, halign: 'right' },
+                        2: { cellWidth: 45, halign: 'right' }
+                      }
+                    : {
+                        0: { cellWidth: 145 },
+                        1: { cellWidth: 45, halign: 'right' }
+                      };
                 
                 doc.autoTable({
                     startY: yPos,
-                    head: [['Descripcion del Material', 'Monto (S/)', 'Impuesto 8% (S/)']],
+                    head: materialHeaders,
                     body: materialData,
                     theme: 'striped',
                     headStyles: { fillColor: [30, 77, 183], textColor: 255, fontStyle: 'bold', fontSize: 10 },
                     styles: { fontSize: 9, cellPadding: 4 },
-                    columnStyles: {
-                        0: { cellWidth: 100 },
-                        1: { cellWidth: 45, halign: 'right' },
-                        2: { cellWidth: 45, halign: 'right' }
-                    },
+                    columnStyles: materialColumnStyles,
                     alternateRowStyles: { fillColor: [245, 245, 245] }
                 });
                 
@@ -730,16 +818,21 @@
                 doc.setFontSize(10);
                 doc.setFont(undefined, 'bold');
                 doc.setTextColor(0, 0, 0);
-                doc.text(`Subtotal: S/ ${materialSubtotal.toFixed(2)}  |  Impuesto: S/ ${materialTax.toFixed(2)}  |  Total: S/ ${(materialSubtotal + materialTax).toFixed(2)}`, 14, yPos);
+                if (showTax) {
+                    doc.text(`Subtotal: S/ ${materialSubtotal.toFixed(2)}  |  Impuesto: S/ ${materialTax.toFixed(2)}  |  Total: S/ ${(materialSubtotal + materialTax).toFixed(2)}`, 14, yPos);
+                } else {
+                    doc.text(`Total: S/ ${materialSubtotal.toFixed(2)}`, 14, yPos);
+                }
                 yPos += 15;
             }
             
             // Resumen General
             doc.setFillColor(248, 249, 250);
-            doc.rect(14, yPos, 182, 45, 'F');
+            const summaryHeight = showTax ? 45 : 35;
+            doc.rect(14, yPos, 182, summaryHeight, 'F');
             doc.setDrawColor(30, 77, 183);
             doc.setLineWidth(0.5);
-            doc.rect(14, yPos, 182, 45);
+            doc.rect(14, yPos, 182, summaryHeight);
             
             yPos += 8;
             doc.setFontSize(14);
@@ -752,21 +845,29 @@
             doc.setTextColor(0, 0, 0);
             doc.setFont(undefined, 'normal');
             
-            doc.text('Subtotal Mano de Obra:', 20, yPos);
-            doc.text(`S/ ${laborSubtotal.toFixed(2)}`, 190, yPos, { align: 'right' });
-            yPos += 6;
+            if (showLabor) {
+                doc.text('Subtotal Mano de Obra:', 20, yPos);
+                doc.text(`S/ ${laborSubtotal.toFixed(2)}`, 190, yPos, { align: 'right' });
+                yPos += 6;
+            }
             
-            doc.text('Subtotal Materiales:', 20, yPos);
-            doc.text(`S/ ${materialSubtotal.toFixed(2)}`, 190, yPos, { align: 'right' });
-            yPos += 6;
+            if (showMaterial) {
+                doc.text('Subtotal Materiales:', 20, yPos);
+                doc.text(`S/ ${materialSubtotal.toFixed(2)}`, 190, yPos, { align: 'right' });
+                yPos += 6;
+            }
             
             doc.text('Subtotal General:', 20, yPos);
             doc.text(`S/ ${totalSubtotal.toFixed(2)}`, 190, yPos, { align: 'right' });
             yPos += 6;
             
-            doc.text('Total Impuestos (8%):', 20, yPos);
-            doc.text(`S/ ${totalTax.toFixed(2)}`, 190, yPos, { align: 'right' });
-            yPos += 8;
+            if (showTax) {
+                doc.text('Total Impuestos (8%):', 20, yPos);
+                doc.text(`S/ ${totalTax.toFixed(2)}`, 190, yPos, { align: 'right' });
+                yPos += 8;
+            } else {
+                yPos += 2;
+            }
             
             doc.setDrawColor(255, 152, 0);
             doc.setLineWidth(0.5);
